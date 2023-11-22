@@ -1,0 +1,7 @@
+split:
+  split_ratio: 0.3
+  seed: 42
+
+train:
+  n_neighbors: 12
+  weights: "distance" 
