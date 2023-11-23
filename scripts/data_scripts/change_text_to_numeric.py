@@ -16,7 +16,7 @@ os.makedirs(os.path.join("data", "stage3"), exist_ok=True)
 # Датасет для обработки
 df = pd.read_csv(f_input)
 
-# Удалим признаки, которые не оказывают значитального влияния на модель обучения
+# Удаление признаков, которые не оказывают значитального влияния на модель обучения
 df.drop([
 "YrSold", "MSSubClass", "LotConfig", "RoofStyle", "HouseStyle", "LotShape",
 "Exterior1st", "Exterior2nd", "BsmtFullBath", "BedroomAbvGr", "HalfBath",
@@ -24,7 +24,7 @@ df.drop([
 ],
 axis=1, inplace=True)
 
-# заменим текстовые признаки на числовые
+# Замена текстовых признаков на числовые
 df["SaleCondition"] = pd.factorize(df["SaleCondition"])[0]
 df["SaleType"] = pd.factorize(df["SaleType"])[0]
 df["Condition1"] = pd.factorize(df["Condition1"])[0]
