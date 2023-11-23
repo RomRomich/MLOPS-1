@@ -13,7 +13,7 @@ if len(sys.argv) != 2:
 f_input = sys.argv[1]
 os.makedirs(os.path.join("data", "stage3"), exist_ok=True)
 
-# забираем датасет для обработки
+# Датасет для обработки
 df = pd.read_csv(f_input)
 
 # Удалим признаки, которые не оказывают значитального влияния на модель обучения
