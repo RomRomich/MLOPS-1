@@ -10,7 +10,7 @@ from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.neighbors import KNeighborsClassifier, NeighborhoodComponentsAnalysis
 
 
-# Здесь обучаем и сохраняем модель в *.pkl
+# Обучение и сохранение модели в *.pkl
 
 
 if len(sys.argv) != 3:
@@ -27,14 +27,14 @@ params = yaml.safe_load(open("params.yaml"))["train"]
 p_n_neighbors = params["n_neighbors"]
 p_weights = params["weights"]
 
-# загружаем тренировочный датасет и разделяем признаки и метки
+# Загрузка тренировочного датасета и разделение признаков и меток
 df = pd.read_csv(f_input)
 
-# Отделяем признаки и метки
+# Отделение признаков и меток
 X_train = df.iloc[:,0:-1]
 y_train = df.iloc[:,-1].astype('int')
 
-# Пишем пайп финальной подготовки и обучения датасета
+# Пайп финальной подготовки и обучения датасета
 num_pipe = Pipeline([
     ("imputer", SimpleImputer(strategy="median")),
     ("scaler", StandardScaler()), # StandardScaler or MinMaxScaler
@@ -56,9 +56,9 @@ model_pipe = Pipeline([
     ("model", KNeighborsClassifier(n_neighbors=p_n_neighbors, weights=p_weights))
 ])
 
-# Обучаем модель
+# Обучение модели
 model_pipe.fit(X_train, y_train.astype('int'))
 
-# Сохраняем обученную модель
+# Сохранение обученной модели
 with open(f_output, "wb") as fd:
     pickle.dump(model_pipe, fd)

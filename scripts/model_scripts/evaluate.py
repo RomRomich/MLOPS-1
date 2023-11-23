@@ -4,27 +4,27 @@ import pickle
 import json
 import pandas as pd
 
-# этим файлом получаем метрики работы модели на тестовых данных
+# Получение метрик работ модели на тестовые данные с помощью этого файла
 
-# забираем тестовый файл и обученную модель
+# Тестовый файл и обученная модель
 if len(sys.argv) != 3:
     sys.stderr.write("Arguments error. Usage:\n")
     sys.stderr.write("\tpython evaluate.py data-file model\n")
     sys.exit(1)
 
-# загружаем тренировочный датасет и разделяем признаки и метки
+# Загрузка тренировочного датасета и разделение признаков и меток
 # df = pd.read_csv(sys.argv[1], header=None)
 df = pd.read_csv(sys.argv[1])
 
-# Отделяем признаки и метки
+# Разделение признаков и меток
 X_test = df.iloc[:,0:-1]
 y_test = df.iloc[:,-1].astype('int')
 
-# Загружаем модель
+# Загрузка модели
 with open(sys.argv[2], "rb") as fd:
     clf = pickle.load(fd)
 
-# Получаем метрики работы модели на тестовых данных
+# Получение метрик работы модели на тестовых данных
 score = clf.score(X_test, y_test)
 
 prc_file = os.path.join("evaluate", "score.json")

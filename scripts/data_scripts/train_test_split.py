@@ -5,10 +5,10 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 
-# делим датасет на тренировочную и тестовую выборки,
-# сохраняем файлы в stage4
+# Разделение датасета на тренировочную и тестовую выборки,
+# Сохранение файла в stage4
 
-# Ставим библиотеки
+# Установка библиотек
 # pip install pyyaml
 # pip install scikit-learn
 
@@ -28,7 +28,7 @@ f_input = sys.argv[1]
 
 os.makedirs(os.path.join("data", "stage4"), exist_ok=True)
 
-# забираем датасет для обработки
+# Датасет для обработки
 df = pd.read_csv(f_input)
 
 X_train, X_test, y_train, y_test = train_test_split(

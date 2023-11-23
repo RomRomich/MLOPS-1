@@ -2,7 +2,7 @@ import sys
 import os
 import pandas as pd
 
-# Работаем с пропущенными значениями, сохраняем файл в stage1
+# Работа с пропущенными значениями, сохранение файла в stage1
 
 if len(sys.argv) != 2:
     sys.stderr.write("Arguments error. Usage:\n")
@@ -12,10 +12,10 @@ if len(sys.argv) != 2:
 f_input = sys.argv[1]
 os.makedirs(os.path.join("data", "stage1"), exist_ok=True)
 
-# забираем датасет для обработки
+# Датасет для обработки
 df = pd.read_csv(f_input)
 
-# Удалим признаки для которых много пропусков
+# Удаление признаков для которых много пропусков
 _to_remove = df.columns[df.count() < 800]
 df.drop(_to_remove, axis=1, inplace=True)
 

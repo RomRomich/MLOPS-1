@@ -3,7 +3,7 @@ import os
 import io
 import pandas as pd
 
-# Работаем с оставшимися нужными признаками, сохраняем файл в stage2
+# Работа с оставшимися нужными признаками, сохранение файла в stage2
 
 # python3 ./get_features.py data-file
 
@@ -15,7 +15,7 @@ if len(sys.argv) != 2:
 f_input = sys.argv[1]
 os.makedirs(os.path.join("data", "stage2"), exist_ok=True)
 
-# забираем датасет для обработки
+# Датасет для обработки
 df = pd.read_csv(f_input)
 
 
