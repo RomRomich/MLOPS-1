@@ -2,8 +2,8 @@ import sys
 import os
 import pandas as pd
 
-# Преобразовываем признаки текстовые в числовые, меняем типы,
-# сохраняем файл в stage3
+# Преобразование текстовых признаков в числовые, смена типов,
+# Сохранение файлов в stage3
 
 if len(sys.argv) != 2:
     sys.stderr.write("Arguments error. Usage:\n")
